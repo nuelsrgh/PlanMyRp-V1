@@ -99,9 +99,9 @@
                                     <p>Sign In</p>
                                 </div>
                                 <form>
-                                    <input class="form-control" type="text" placeholder="Username or Email" required>
-                                    <input class="form-control" type="password" placeholder="Password" required>
-                                    <button type="submit">Login</button>
+                                    <input class="form-control" class="login__input--user" type="text" placeholder="Username or Email" required>
+                                    <input class="form-control" class="login__input--pin" type="password" placeholder="Password" required>
+                                    <button type="submit" class="login__btn">Login</button>
                                 </form>
                                 <br>
                                 <span class="link" onclick="showRegister()">Don’t have an account?</span>
@@ -144,11 +144,10 @@
 
                     </div>
                 </div>
-
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#535da1" fill-opacity="1" d="M0,160L24,160C48,160,96,160,144,138.7C192,117,240,75,288,64C336,53,384,75,432,106.7C480,139,528,181,576,208C624,235,672,245,720,240C768,235,816,213,864,186.7C912,160,960,128,1008,133.3C1056,139,1104,181,1152,202.7C1200,224,1248,224,1296,197.3C1344,171,1392,117,1416,90.7L1440,64L1440,0L1416,0C1392,0,1344,0,1296,0C1248,0,1200,0,1152,0C1104,0,1056,0,1008,0C960,0,912,0,864,0C816,0,768,0,720,0C672,0,624,0,576,0C528,0,480,0,432,0C384,0,336,0,288,0C240,0,192,0,144,0C96,0,48,0,24,0L0,0Z"></path></svg>
         </section>
-<!-- 
-            <section class="about section-padding" id="section_2">
+
+        <section class="about section-padding" id="section_1">
                 <div class="container">
                     <div class="row">
 
@@ -166,280 +165,280 @@
 
                     </div>
                 </div>
-            </section> -->
+        </section>
 
-            <section class="about section-padding-transaction" id="section_2" >
-                <div class="container mt-5 mb-5">
-                    <h4>Welcome, Immanuel 👋</h4>
-                </div>
-                <div class="container"> 
-                    <div class="row">
-                        <div class="col-lg-6 col-12" >
-                                <strong class="featured-numbers">Rp. 7.500.000</strong>
-                                <p class="featured-text">Current Balance  <i>21/08/2025</i></p>
+        <section class="about section-padding-transaction" id="section_2" >
+            <div class="container mt-5 mb-5">
+                <h4>Welcome, Immanuel 👋</h4>
+            </div>
+            <div class="container"> 
+                <div class="row">
+                    <div class="col-lg-6 col-12" >
+                            <strong class="featured-numbers">Rp. 7.500.000</strong>
+                            <p class="featured-text">Current Balance  <i>21/08/2025</i></p>
 
-                                                            <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4">
-                                    <h4 class="text-white"><i class="bi-receipt me-3"></i>Transaction</h4>
-                                </div>
-                                
-                                 <form action="#" method="get" class="custom-form contact-form" role="form">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-6">
-                                            <div class="form-check form-check-inline">
-                                                <input name="income" type="checkbox" class="form-check-input" id="CheckboxIncome" value="1">
+                                                        <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4">
+                                <h4 class="text-white"><i class="bi-receipt me-3"></i>Transaction</h4>
+                            </div>
+                            
+                                <form action="#" method="get" class="custom-form contact-form" role="form">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-6">
+                                        <div class="form-check form-check-inline">
+                                            <input name="income" type="checkbox" class="form-check-input" id="CheckboxIncome" value="1">
 
-                                                <label class="form-check-label" for="inlineCheckbox2">
-                                                    <i class="bi-cash-stack form-check-icon"></i>
-                                                    <span class="form-check-label-text">Income</span>
-                                                </label>
+                                            <label class="form-check-label" for="inlineCheckbox2">
+                                                <i class="bi-cash-stack form-check-icon"></i>
+                                                <span class="form-check-label-text">Income</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-6">
+                                        <div class="form-check form-check-inline">
+                                            <input name="expenses" type="checkbox" class="form-check-input" id="CheckboxExpenses" value="1">
+
+                                            <label class="form-check-label" for="inlineCheckbox3">
+                                                <i class="bi-wallet2 form-check-icon"></i>
+                                                <span class="form-check-label-text">Expenses</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="income-fields" style="display:none; margin-top:15px;">
+                                        <div class="row">
+
+                                        <div class="col-lg-6 col-md-6 col-12"> 
+                                            <div class="form-floating">
+                                            <select id="kategori" class="form-control"  name="kategori">
+                                                <option value="makan">-- Sumber -- </option>
+                                                <option value="makan">Gaji</option>
+                                                <option value="transport">Bonus</option>
+                                                <option value="kos">Freelance</option>
+                                                </select>           
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-6 col-md-6 col-6">
-                                            <div class="form-check form-check-inline">
-                                                <input name="expenses" type="checkbox" class="form-check-input" id="CheckboxExpenses" value="1">
-
-                                                <label class="form-check-label" for="inlineCheckbox3">
-                                                    <i class="bi-wallet2 form-check-icon"></i>
-                                                    <span class="form-check-label-text">Expenses</span>
-                                                </label>
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="form-floating">
+                                                <input type="number" name="price" id="price" class="form-control" placeholder="Price" required="">
+                                                <label for="floatingInput">Amount</label>
                                             </div>
+                                        </div> 
+                                        
                                         </div>
                                         
-                                        <div id="income-fields" style="display:none; margin-top:15px;">
-                                            <div class="row">
-
-                                            <div class="col-lg-6 col-md-6 col-12"> 
-                                                <div class="form-floating">
-                                                <select id="kategori" class="form-control"  name="kategori">
-                                                    <option value="makan">-- Sumber -- </option>
-                                                    <option value="makan">Gaji</option>
-                                                    <option value="transport">Bonus</option>
-                                                    <option value="kos">Freelance</option>
-                                                    </select>           
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6 col-md-6 col-12">
-                                                <div class="form-floating">
-                                                    <input type="number" name="price" id="price" class="form-control" placeholder="Price" required="">
-                                                    <label for="floatingInput">Amount</label>
-                                                </div>
-                                            </div> 
-                                            
-                                            </div>
-                                            
-                                            
-                                            <div class="col-lg-3 col-12 ms-auto">
-                                                <button class="form-control" type="submit">Save</button>
-                                            </div>
-                                        </div>
-
-                                         <div id="expenses-fields" style="display:none; margin-top:15px;">
-                                            <div class="row">
-                                                <div class="col-lg-12 col-md-6 col-12">
-                                                <div class="form-floating">
-                                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name" required="">
-                                                    <label for="floatingInput">Deskripsi (Misal; Beli Buku)</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6 col-md-6 col-12"> 
-                                                <div class="form-floating">
-                                                <select id="kategori" class="form-control"  name="kategori">
-                                                    <option value="makan">-- Kategori -- </option>
-                                                    <option value="makan">Main Expenses</option>
-                                                    <option value="transport">Other Expenses</option>
-                                                    <option value="kos">Wishlist</option>
-                                                    <option value="hiburan">Saving</option>
-                                                    </select>           
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6 col-md-6 col-12">
-                                                <div class="form-floating">
-                                                    <input type="number" name="price" id="price" class="form-control" placeholder="Price" required="">
-                                                    <label for="floatingInput">Price</label>
-                                                </div>
-                                            </div> 
-                                            
-                                            </div>
-                                            
-                                            
-                                            <div class="col-lg-3 col-12 ms-auto">
-                                                <button class="form-control" type="submit">Save</button>
-                                            </div>
+                                        
+                                        <div class="col-lg-3 col-12 ms-auto">
+                                            <button class="form-control" type="submit">Save</button>
                                         </div>
                                     </div>
-                                </form>
+
+                                        <div id="expenses-fields" style="display:none; margin-top:15px;">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-6 col-12">
+                                            <div class="form-floating">
+                                                <input type="text" name="name" id="name" class="form-control" placeholder="Name" required="">
+                                                <label for="floatingInput">Deskripsi (Misal; Beli Buku)</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-12"> 
+                                            <div class="form-floating">
+                                            <select id="kategori" class="form-control"  name="kategori">
+                                                <option value="makan">-- Kategori -- </option>
+                                                <option value="makan">Main Expenses</option>
+                                                <option value="transport">Other Expenses</option>
+                                                <option value="kos">Wishlist</option>
+                                                <option value="hiburan">Saving</option>
+                                                </select>           
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="form-floating">
+                                                <input type="number" name="price" id="price" class="form-control" placeholder="Price" required="">
+                                                <label for="floatingInput">Price</label>
+                                            </div>
+                                        </div> 
+                                        
+                                        </div>
+                                        
+                                        
+                                        <div class="col-lg-3 col-12 ms-auto">
+                                            <button class="form-control" type="submit">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                    </div>
+
+                    <div class="col-lg-6 col-12">
+                        <div class="card border-0" style="position: sticky; top: 20px;">
+                            <div class="card-body">
+                                <canvas id="financeChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services section-padding" id="section_3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-12 mx-auto">
+                        <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
+                            <div>
+                                <img src="images/clients/shopify.svg" class="clients-image img-fluid" alt="">
+                            </div>
+                            <h3 class="text-white ms-4 mb-0">Expenses - January</h3>
                         </div>
 
-                        <div class="col-lg-6 col-12">
-                           <div class="card border-0" style="position: sticky; top: 20px;">
-                                <div class="card-body">
-                                    <canvas id="financeChart"></canvas>
+                        <div class="row pt-lg-5">
+                            <div class="col-lg-6 col-12">
+                                    <div class="services-thumb services-thumb-up">
+                                    <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
+                                        <h4 class="mb-0">Main Expenses</h4>
+                                        <div class="services-price-wrap ms-auto">
+                                            <p class="services-price-text mb-0">Rp.7,000,000</p>
+                                        </div>
+                                    </div>
+
+                                    <p>Detail</p>
+                                    <table  cellpadding="5" width="100%">
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Uang makan</td>
+                                                <td>10.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Buat Natan</td>
+                                                <td>12.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>PAKJ</td>
+                                                <td>10.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Uang kos</td>
+                                                <td>12.000</td>
+                                            </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-12">
+                                <div class="services-thumb services-thumb-up">
+                                    <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
+                                        <h4 class="mb-0">Others Expenses</h4>
+
+                                        <div class="services-price-wrap ms-auto">
+                                            <p class="services-price-text mb-0">Rp.1,200,000</p>
+                                        </div>
+                                    </div>
+
+                                    <p>Detail</p>
+                                        <table  cellpadding="5"  width="100%">
+                                            <tr>
+                                                <td>nongkrong sama kawan ktb</td>
+                                                <td>02/08/2025</td>
+                                                <td>100.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Buat Natan</td>
+                                                <td>03/08/2025</td>
+                                                <td>50.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PAKJ</td>
+                                                <td>04/08/2025</td>
+                                                <td>600.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Uang kos</td>
+                                                <td>05/08/2025</td>
+                                                <td>12.000</td>
+                                            </tr>
+                                            
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="services section-padding" id="section_3">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-10 col-12 mx-auto">
-                            <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
-                                <div>
-                                    <img src="images/clients/shopify.svg" class="clients-image img-fluid" alt="">
-                                </div>
-                                <h3 class="text-white ms-4 mb-0">Expenses - January</h3>
-                            </div>
-
+        <section class="clients section-padding" id="section_4">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-lg-10 col-12 mx-auto">
                             <div class="row pt-lg-5">
                                 <div class="col-lg-6 col-12">
-                                     <div class="services-thumb services-thumb-up">
-                                        <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
-                                            <h4 class="mb-0">Main Expenses</h4>
-                                            <div class="services-price-wrap ms-auto">
-                                                <p class="services-price-text mb-0">Rp.7,000,000</p>
-                                            </div>
-                                        </div>
-
-                                        <p>Detail</p>
-                                        <table  cellpadding="5" width="100%">
-                                                <tr>
-                                                    <td><input type="checkbox"></td>
-                                                    <td>Uang makan</td>
-                                                    <td>10.000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><input type="checkbox"></td>
-                                                    <td>Buat Natan</td>
-                                                    <td>12.000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><input type="checkbox"></td>
-                                                    <td>PAKJ</td>
-                                                    <td>10.000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><input type="checkbox"></td>
-                                                    <td>Uang kos</td>
-                                                    <td>12.000</td>
-                                                </tr>
-                                        </table>
+                                <div class="services-thumb services-thumb-up    ">
+                                    <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
+                                        <h4 class="mb-0">Wishlist/Future Planning</h4>
                                     </div>
+                                    <p>Detail</p>
+                                    <table cellpadding="2" cellspacing="0" width="100%">
+                                        <tr>
+                                        <th>Tujuan</th>
+                                        <th>Target</th>
+                                        <th>Progress</th>
+                                        </tr>
+                                        <tr>
+                                        <td>Beli Motor</td>
+                                        <td>20.000</td>
+                                        <td>
+                                            40% <br>
+                                            <progress value="40" max="100"></progress>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td>Beli Ipad</td>
+                                        <td>10.000</td>
+                                        <td>
+                                            70% <br>
+                                            <progress value="70" max="100"></progress>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td>Pernikahan</td>
+                                        <td>15.000</td>
+                                        <td>
+                                            25% <br>
+                                            <progress value="25" max="100"></progress>
+                                        </td>
+                                        </tr>
+                                            <tr>
+                                        <td>Liburan ke luar negeri</td>
+                                        <td>15.000</td>
+                                        <td>
+                                            25% <br>
+                                            <progress value="25" max="100"></progress>
+                                        </td>
+                                        </tr>
+                                    </table>
+                                </div>  
                                 </div>
 
                                 <div class="col-lg-6 col-12">
-                                    <div class="services-thumb services-thumb-up">
-                                        <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
-                                            <h4 class="mb-0">Others Expenses</h4>
-
-                                            <div class="services-price-wrap ms-auto">
-                                                <p class="services-price-text mb-0">Rp.1,200,000</p>
-                                            </div>
-                                        </div>
-
-                                        <p>Detail</p>
-                                            <table  cellpadding="5"  width="100%">
-                                                <tr>
-                                                    <td>nongkrong sama kawan ktb</td>
-                                                    <td>02/08/2025</td>
-                                                    <td>100.000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Buat Natan</td>
-                                                    <td>03/08/2025</td>
-                                                    <td>50.000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>PAKJ</td>
-                                                    <td>04/08/2025</td>
-                                                    <td>600.000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Uang kos</td>
-                                                    <td>05/08/2025</td>
-                                                    <td>12.000</td>
-                                                </tr>
-                                                
-                                        </table>
+                                    <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
+                                        <h4 class="mb-0">Saving</h4>
                                     </div>
+                                    <div class="section-title-wrap d-flex align-items-center mb-5">
+                                        <h4 class="text-black"><i class="bi-cash-coin me-3"></i>Rp. 4.500.000</h4>
+                                    </div>  
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
-            </section>
-
-            <section class="clients section-padding">
-                <div class="container">
-                    <div class="row ">
-                        <div class="col-lg-10 col-12 mx-auto">
-                             <div class="row pt-lg-5">
-                                 <div class="col-lg-6 col-12">
-                                    <div class="services-thumb services-thumb-up    ">
-                                        <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
-                                            <h4 class="mb-0">Wishlist/Future Planning</h4>
-                                        </div>
-                                        <p>Detail</p>
-                                        <table cellpadding="2" cellspacing="0" width="100%">
-                                            <tr>
-                                            <th>Tujuan</th>
-                                            <th>Target</th>
-                                            <th>Progress</th>
-                                            </tr>
-                                            <tr>
-                                            <td>Beli Motor</td>
-                                            <td>20.000</td>
-                                            <td>
-                                                40% <br>
-                                                <progress value="40" max="100"></progress>
-                                            </td>
-                                            </tr>
-                                            <tr>
-                                            <td>Beli Ipad</td>
-                                            <td>10.000</td>
-                                            <td>
-                                                70% <br>
-                                                <progress value="70" max="100"></progress>
-                                            </td>
-                                            </tr>
-                                            <tr>
-                                            <td>Pernikahan</td>
-                                            <td>15.000</td>
-                                            <td>
-                                                25% <br>
-                                                <progress value="25" max="100"></progress>
-                                            </td>
-                                            </tr>
-                                             <tr>
-                                            <td>Liburan ke luar negeri</td>
-                                            <td>15.000</td>
-                                            <td>
-                                                25% <br>
-                                                <progress value="25" max="100"></progress>
-                                            </td>
-                                            </tr>
-                                        </table>
-                                    </div>  
-                                 </div>
-
-                                   <div class="col-lg-6 col-12">
-                                        <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
-                                            <h4 class="mb-0">Saving</h4>
-                                        </div>
-                                        <div class="section-title-wrap d-flex align-items-center mb-5">
-                                            <h4 class="text-black"><i class="bi-cash-coin me-3"></i>Rp. 4.500.000</h4>
-                                        </div>  
-                                 </div>
-                             </div>
-                        </div>
-                    </div>
-                </div>
-            </section> 
+            </div>
+        </section> 
         </main>
 
 
@@ -494,6 +493,13 @@
         }
         });
 
+
+        const inputLoginUsername  = document.querySelector('.login__input--user');
+        const inputLoginPin  = document.querySelector('.login__input--pin');
+        const btnLogin = document.querySelector('.login__btn');
+
+        const containerSection2= document.querySelector('#section_2');
+
         // Ambil checkbox
         const expensesCheckbox = document.getElementById('CheckboxExpenses');
         const expenseFields = document.getElementById('expenses-fields');
@@ -542,8 +548,73 @@
                 closePopup();
             }
         }
+
+
+        const updateUI = function (acc){
+            //Display balance & transaction
+
+        }
+
+        const account1 = {
+            owner: 'Immanuel Saragih',
+            pin: 1111
+        }
+
+        const account2 = {
+            owner: 'Rikki Hutagaol',
+            pin: 2222
+        }
+
+        const accounts = [account1,account2]
+
+        const createUsernames = function(accs){
+            accs.forEach(function (acc){
+                    acc.username = acc.owner
+                    .toLowerCase()
+                    .split(' ')
+                    .map(name => name[0])
+                    .join('');
+            });
+        };
+        
+        createUsernames(accounts)
+
+        console.log(accounts)
+
+
+        // Event handlers
+        let currentAccount;
+
+        btnLogin.addEventListener('click', function (e) {
+            // Prevent form from submitting
+            e.preventDefault();
+
+            console.log('pin',inputLoginPin.value);
+            currentAccount = accounts.find(
+                acc => acc.username === inputLoginUsername.value
+            );
+            console.log(currentAccount);    
+
+        
+
+            if (currentAccount?.pin === Number(inputLoginPin.value)) {
+                // Display UI and message
+                labelWelcome.textContent = `Welcome back, ${
+                currentAccount.owner.split(' ')[0]
+                }`;
+                containerApp.style.opacity = 1;
+
+                // Clear input fields
+                inputLoginUsername.value = inputLoginPin.value = '';
+                inputLoginPin.blur();
+
+                // Update UI
+                updateUI(currentAccount);
+
+                containerSection2.style.display = block;
+            }
+        });
+
     </script>
-
-
     </body>
 </html>
