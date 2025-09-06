@@ -36,6 +36,16 @@
             font-family: Arial, sans-serif;
             }
 
+            #formPopupLogin {
+                opacity: 1;
+                transition: opacity 0.4s ease;
+            }
+
+            #formPopupLogin.hide {
+                opacity: 0;
+                pointer-events: none; /* biar ga bisa diklik */
+            }
+
         </style>
     </head>
     <body>
@@ -72,7 +82,7 @@
 
         <main>
 
-         <section class="hero d-flex justify-content-center align-items-center" id="section_1">
+         <section class="hero d-flex justify-content-center align-items-center">
                 <div class="container">
                     <div class="row">
 
@@ -81,11 +91,11 @@
                                 <div class="hero-title-wrap d-flex align-items-center mb-4">
                                     <img src="images/person.jpg" class="avatar-image avatar-image-large img-fluid" alt="">
 
-                                    <h1 class="hero-title ms-3 mb-0">Hello friend!</h1>
+                                    <h1 class="hero-title ms-3 mb-0" id="label_welcome">Hello friend!</h1>
                                 </div>
 
-                                <h2 class="mb-4">Track where it goes. Decide where it should.</h2>
-                                <p class="mb-4"><a class="custom-btn btn custom-link" onclick="openPopup()">Let's begin</a></p>
+                                <h2 class="mb-4" id="label_welcome2">Track where it goes. Decide where it should.</h2>
+                                <p class="mb-4"><a class="custom-btn" style="cursor: pointer;" onclick="openPopup()">Let's begin</a></p>
                             </div>
                         </div>
 
@@ -99,8 +109,8 @@
                                     <p>Sign In</p>
                                 </div>
                                 <form>
-                                    <input class="form-control" class="login__input--user" type="text" placeholder="Username or Email" required>
-                                    <input class="form-control" class="login__input--pin" type="password" placeholder="Password" required>
+                                    <input class="form-control login__input--user" type="text" placeholder="Username or Email" required>
+                                    <input class="form-control login__input--pin" type="password" placeholder="Password" required>
                                     <button type="submit" class="login__btn">Login</button>
                                 </form>
                                 <br>
@@ -168,16 +178,14 @@
         </section>
 
         <section class="about section-padding-transaction" id="section_2" >
-            <div class="container mt-5 mb-5">
-                <h4>Welcome, Immanuel 👋</h4>
+            <div class="container mt-5 mb-3">
+                <p class="featured-text">Current Balance  <i>21/08/2025</i></p>
             </div>
             <div class="container"> 
                 <div class="row">
                     <div class="col-lg-6 col-12" >
                             <strong class="featured-numbers">Rp. 7.500.000</strong>
-                            <p class="featured-text">Current Balance  <i>21/08/2025</i></p>
-
-                                                        <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4">
+                            <div class="section-title-wrap d-flex justify-content-center align-items-center mt-2 mb-4">
                                 <h4 class="text-white"><i class="bi-receipt me-3"></i>Transaction</h4>
                             </div>
                             
@@ -497,8 +505,12 @@
         const inputLoginUsername  = document.querySelector('.login__input--user');
         const inputLoginPin  = document.querySelector('.login__input--pin');
         const btnLogin = document.querySelector('.login__btn');
-
+        const containerSection1= document.querySelector('#section_1'); 
         const containerSection2= document.querySelector('#section_2');
+        const containerSection3= document.querySelector('#section_3');
+        const containerSection4= document.querySelector('#section_4');
+        const labelWelcome = document.querySelector('#label_welcome');
+        const formPopupLogin = document.querySelector('.popup-overlay')
 
         // Ambil checkbox
         const expensesCheckbox = document.getElementById('CheckboxExpenses');
@@ -515,7 +527,6 @@
                 expensesCheckbox.checked = false;
             }
             
-            
         });
 
         expensesCheckbox.addEventListener('change', function() {
@@ -529,31 +540,26 @@
 
         function openPopup() {
             document.getElementById("popup").style.display = "block";
-            }
-            function closePopup() {
+        }
+        function closePopup() {
             document.getElementById("popup").style.display = "none";
-            }
-            function showRegister() {
+        }
+        function showRegister() {
             document.getElementById("loginForm").style.display = "none";
             document.getElementById("registerForm").style.display = "block";
-            }
-            function showLogin() {
+        }
+        function showLogin() {
             document.getElementById("registerForm").style.display = "none";
             document.getElementById("loginForm").style.display = "block";
-            }
-            // close popup jika klik di luar box
-            window.onclick = function(event) {
+        }
+        // close popup jika klik di luar box
+        window.onclick = function(event) {
             const popup = document.getElementById("popup");
             if (event.target === popup) {
                 closePopup();
             }
         }
 
-
-        const updateUI = function (acc){
-            //Display balance & transaction
-
-        }
 
         const account1 = {
             owner: 'Immanuel Saragih',
@@ -581,6 +587,16 @@
 
         console.log(accounts)
 
+        function scrollToSection(id, offset = 0) {
+            const section = document.getElementById(id);
+            if (section) {
+                const topPos = section.getBoundingClientRect().top + window.scrollY; 
+                window.scrollTo({
+                    top: topPos - 80, // kasih offset (misalnya 90)
+                    behavior: 'smooth'
+                });
+            }
+        }
 
         // Event handlers
         let currentAccount;
@@ -596,22 +612,18 @@
             console.log(currentAccount);    
 
         
-
             if (currentAccount?.pin === Number(inputLoginPin.value)) {
                 // Display UI and message
-                labelWelcome.textContent = `Welcome back, ${
+                labelWelcome.textContent = `Welcome, ${
                 currentAccount.owner.split(' ')[0]
-                }`;
-                containerApp.style.opacity = 1;
-
-                // Clear input fields
-                inputLoginUsername.value = inputLoginPin.value = '';
-                inputLoginPin.blur();
-
-                // Update UI
-                updateUI(currentAccount);
-
-                containerSection2.style.display = block;
+                } 👋`;
+                
+                containerSection2.style.display = 'block';
+                containerSection3.style.display = 'block';
+                containerSection4.style.display = 'block'; 
+                containerSection1.style.display = 'none'; 
+                formPopupLogin.style.display = 'none';      
+                
             }
         });
 
