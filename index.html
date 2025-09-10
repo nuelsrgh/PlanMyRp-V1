@@ -45,6 +45,34 @@
                 opacity: 0;
                 pointer-events: none; /* biar ga bisa diklik */
             }
+
+            .spinner {
+                width: 60px;
+                height: 60px;
+                border: 6px solid transparent;
+                border-top: 6px solid #3498db;
+                border-right: 6px solid #e74c3c;
+                border-bottom: 6px solid #f1c40f;
+                border-left: 6px solid #2ecc71;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+
+            @keyframes spin {
+                100% { transform: rotate(360deg); }
+            }
+            
+
+            #loader {
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: rgba(255,255,255,0.8);
+                z-index: 9999;
+            }
+
         </style>
     </head>
     <body>
@@ -63,7 +91,7 @@
 
                 <a href="index.html" class="navbar-brand mx-auto mx-lg-0">PlanMyRp <i class="bi-piggy-bank me-3"></i></a>
                 
-                <div class="d-flex align-items-center d-lg-none">
+                <div class="d-flex align-items-center d-lg-none" >
                         <div class="dropdown">
                             <a class="custom-btn btn dropdown-toggle" href="#" role="button" 
                             id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
@@ -73,7 +101,7 @@
                                 <li><a class="dropdown-item small" href="#profile"><i class="bi bi-person-circle me-2"></i> Profile</a></li>
                                 <li><a class="dropdown-item small" href="#settings"><i class="bi bi-gear me-2"></i> Settings</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item text-danger small" href="#logout"><i class="bi bi-box-arrow-right me-2"></i> Logout</a></li>
+                                <li><a class="dropdown-item text-danger small logout__btn"><i class="bi bi-box-arrow-right me-2"></i> Logout</a></li>
                             </ul>
                         </div>
                 </div>
@@ -88,7 +116,7 @@
                             <a class="nav-link click-scroll" href="#section_2">About</a>
                         </li>
                     </ul>
-                    <div class="d-lg-flex align-items-center d-none ms-auto" style="display: none;">
+                    <div class="d-lg-flex align-items-center d-none ms-auto">
                         <!-- Dropdown -->
                         <div class="dropdown">
                             <a class="custom-btn btn dropdown-toggle" href="#" role="button" 
@@ -107,11 +135,7 @@
                                 </a>
                             </li>
                             <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item text-danger small" href="#logout">
-                                <i class="bi bi-box-arrow-right me-2"></i> Logout
-                                </a>
-                            </li>
+                             <li><a class="dropdown-item text-danger small logout__btns" style="cursor: pointer;"><i class="bi bi-box-arrow-right me-2"></i> Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -154,6 +178,10 @@
                                 </form>
                                 <br>
                                 <span class="link" onclick="showRegister()">Don’t have an account?</span>
+                            </div>
+
+                            <div id="loader" style="display:none;">
+                                <div class="spinner"></div>
                             </div>
 
                             <!-- REGISTER FORM -->
@@ -543,7 +571,9 @@
 
         const inputLoginUsername  = document.querySelector('.login__input--user');
         const inputLoginPin  = document.querySelector('.login__input--pin');
-        const btnLogin = document.querySelector('.login__btn');
+        const profileSection  = document.querySelector('#profile_section');
+        const btnLogin  = document.querySelector('.login__btn');
+        const btnLogout = document.querySelector('.logout__btns');
         const containerSection1= document.querySelector('#section_1'); 
         const containerSection2= document.querySelector('#section_2');
         const containerSection3= document.querySelector('#section_3');
@@ -641,31 +671,46 @@
         let currentAccount;
 
         btnLogin.addEventListener('click', function (e) {
-            // Prevent form from submitting
             e.preventDefault();
 
-            console.log('pin',inputLoginPin.value);
+            // Tampilkan loader
+            document.getElementById("loader").style.display = "flex";
+
+            console.log('pin', inputLoginPin.value);
             currentAccount = accounts.find(
                 acc => acc.username === inputLoginUsername.value
             );
             console.log(currentAccount);    
 
-        
-            if (currentAccount?.pin === Number(inputLoginPin.value)) {
-                // Display UI and message
-                labelWelcome.textContent = `Welcome, ${
-                currentAccount.owner.split(' ')[0]
-                } 👋`;
-                
-                containerSection2.style.display = 'block';
-                containerSection3.style.display = 'block';
-                containerSection4.style.display = 'block'; 
-                containerSection1.style.display = 'none'; 
-                formPopupLogin.style.display = 'none';      
-                
-            }
+            // Simulasi login async
+            setTimeout(() => {
+                // Cek PIN
+                if (currentAccount?.pin === Number(inputLoginPin.value)) {
+                    // Login berhasil
+                    labelWelcome.textContent = `Welcome, ${currentAccount.owner.split(' ')[0]} 👋`;
+                    
+                    containerSection2.style.display = 'block';
+                    containerSection3.style.display = 'block';
+                    containerSection4.style.display = 'block'; 
+                    containerSection1.style.display = 'none'; 
+                    formPopupLogin.style.display = 'none';      
+
+                } else {
+                    // Login gagal
+                    alert("Username atau PIN salah!");
+                }
+
+                // Sembunyikan loader setelah proses selesai
+                document.getElementById("loader").style.display = "none";
+            }, 2000);
         });
 
+        btnLogout.addEventListener('click', function (e){
+            e.preventDefault();
+
+            // Tampilkan loader
+            document.getElementById("loader").style.display = "flex";
+        })
     </script>
     </body>
 </html>
